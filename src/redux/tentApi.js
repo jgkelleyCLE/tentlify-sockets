@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const tentApi = createApi({
     reducerPath: 'tentApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001',
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://tentlify-checklist.up.railway.app',
     prepareHeaders: (headers, { getState }) => {
         const token = getState().auth.user?.token;
         if (token) {
@@ -41,8 +41,15 @@ export const tentApi = createApi({
                 body: { parts }
             }),
             invalidatesTags: ['Tent']
+        }),
+        fetchTents: builder.query({
+            query: ()=> ({
+                url: '/api/tents/fetch',
+                method: 'GET'
+            }),
+            providesTags: ['Tent']
         })
     })
 })
 
-export const { useGetTentsQuery, useGetTentQuery, useGetTentsByCategoryQuery, useUpdateTentPartMutation } = tentApi;
+export const { useGetTentsQuery, useGetTentQuery, useGetTentsByCategoryQuery, useUpdateTentPartMutation, useFetchTentsQuery } = tentApi;

@@ -1,21 +1,20 @@
-import React from 'react'
-import { useGetLoadsQuery } from '../redux/loadApi'
-import { FlexColumn, FlexRow } from '../Components/UI'
-import { Spinner } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
-import LoadTabs from '../Components/Load/LoadTabs'
+import React from 'react';
+import { useGetLoadsQuery } from '../redux/loadApi';
+import { FlexColumn, FlexRow, PageContainer } from '../Components/UI';
+import { Spinner } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+import LoadTabs from '../Components/Load/LoadTabs';
 
 const Loads = () => {
-
-    const navigate = useNavigate()
-    
+  const navigate = useNavigate();
 
   return (
-    <FlexColumn>
-        
+    <PageContainer>
+      <FlexColumn>
         <LoadTabs />
-    </FlexColumn>
-  )
-}
+      </FlexColumn>
+    </PageContainer>
+  );
+};
 
-export default Loads
+export default Loads;

@@ -12,3 +12,7 @@ export const FlexRow = tw.div`
     items-center
     
 `
+
+export const PageContainer = tw.div`
+    mt-20
+`
